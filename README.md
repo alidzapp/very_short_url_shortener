@@ -12,5 +12,5 @@ Or just by happening your link to the url like this:<br>
 LIke YOURLS do. But in 1.5ko.
 
 Have a try: http://user23.net/open/short/ <br>
-or for example (no worries you are coming back here): <br>
+As example: (You are going back here): <br>
 http://user23.net/open/short/?to_short=https://github.com/webdev23/very_short_url_shortener
