@@ -11,6 +11,6 @@ Or just by happening your link to the url like this:<br>
 ### ?to_short=http://A_very_LOONG_link<br>
 LIke YOURLS do. But in 1.5ko.
 
-Have a try: http://user23.net/open/short/ <br>
+Have a try: http://ponyhacks.com/open/i/ <br>
 As example: (You are going back here): <br>
-http://user23.net/open/short/?to_short=https://github.com/webdev23/very_short_url_shortener
+http://ponyhacks.com/open/i/?to_short=https://github.com/webdev23/very_short_url_shortener
