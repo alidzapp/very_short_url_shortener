@@ -32,9 +32,9 @@ if (empty ($toshort)) {
 
 if (!empty ($toshort)) {	
 
-// Change the 5 to match your choice of url
+// Change the 3 to match your choice of url: 3 mean 6 chars
 
-	$token = bin2hex(openssl_random_pseudo_bytes(5));
+	$token = bin2hex(openssl_random_pseudo_bytes(3));
 
 	file_put_contents($token, $toshort . PHP_EOL, FILE_APPEND);
 
