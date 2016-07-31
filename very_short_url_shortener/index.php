@@ -10,13 +10,13 @@ $toshort = $_POST["bigurl"];
 
 $host = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";;
 
-$bookmarklet = 'javascript:void(window.location="'.$host.'?to_short="+encodeURIComponent(window.location.href));';
+$bookmarklet = 'javascript:void(window.location=&#39;'.$host.'?bigurl=&#39+encodeURIComponent(window.location.href));';
 
 if (empty ($toshort)) {
 
 	echo'<a href="index.php">Hello!</a><br>I am very short url shortener.<br>
 
-	I need urls to exist.<br>Feed me now.<br>Or use <a href="" onclick="alrt()">the bookmarklet</a>
+	I need urls to exist.<br>Feed me now.<br>Or use <a href="'.$bookmarklet.'" onclick="alrt()">the bookmarklet</a>
 
     ';
 
