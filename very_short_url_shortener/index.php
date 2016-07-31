@@ -1,8 +1,10 @@
 <?php
 
 //~ Very short url shortener!
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
+
+ini_set('display_errors', 'Off');
+// error_reporting(E_ALL);
+error_reporting(0);
 
 $toshort = $_POST["bigurl"];
 
@@ -32,7 +34,7 @@ if (empty ($toshort)) {
 
 if (!empty ($toshort)) {	
 
-// Change the 3 to match your choice of url: 3 mean 6 chars
+// Change the 5 to match your choice of url
 
 	$token = bin2hex(openssl_random_pseudo_bytes(3));
 
