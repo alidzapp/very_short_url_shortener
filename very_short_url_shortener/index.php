@@ -8,9 +8,9 @@ error_reporting(0);
 
 $toshort = $_POST["bigurl"];
 
-$host = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";;
+$host = "http://$_SERVER[HTTP_HOST]$_SERVER[REMOTE_HOST]";;
 
-$bookmarklet = 'javascript:void(window.location=&#39;'.$host.'?bigurl=&#39+encodeURIComponent(window.location.href));';
+$bookmarklet = 'javascript:void(window.location=&#39;'.$host.'?to_short=&#39+encodeURIComponent(window.location.href));';
 
 if (empty ($toshort)) {
 
