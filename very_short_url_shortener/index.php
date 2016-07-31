@@ -1,7 +1,6 @@
 <?php
 
 //~ Very short url shortener!
-
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
@@ -33,7 +32,9 @@ if (empty ($toshort)) {
 
 if (!empty ($toshort)) {	
 
-	$token = bin2hex(openssl_random_pseudo_bytes(7));
+// Change the 5 to match your choice of url
+
+	$token = bin2hex(openssl_random_pseudo_bytes(5));
 
 	file_put_contents($token, $toshort . PHP_EOL, FILE_APPEND);
 
@@ -41,7 +42,7 @@ if (!empty ($toshort)) {
 
 	echo'<br>has been shorten into:<br>';
 
-	echo'<a target="blank" href="?s='.$token.'">?s='.$token.'</a>';
+	echo'<a href="?s='.$token.'">?s='.$token.'</a>';
 
     };
 
