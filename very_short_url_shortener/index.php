@@ -1,6 +1,9 @@
-<?
+<?php
 
 //~ Very short url shortener!
+
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 
 $toshort = $_POST["bigurl"];
 
@@ -30,7 +33,7 @@ if (empty ($toshort)) {
 
 if (!empty ($toshort)) {	
 
-	$token = bin2hex(mcrypt_create_iv(3, MCRYPT_DEV_RANDOM));
+	$token = bin2hex(openssl_random_pseudo_bytes(7));
 
 	file_put_contents($token, $toshort . PHP_EOL, FILE_APPEND);
 
