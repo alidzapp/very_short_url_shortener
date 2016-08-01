@@ -37,19 +37,19 @@ if (empty ($toshort)) {
 	
 	</form>';
 
-	};
+	}
 
 if (!empty ($toshort)) {
 	
 	$token = bin2hex(openssl_random_pseudo_bytes(2));
 	
-    };
+    }
 	
 if (!empty ($name)) {
 		
 	$token = $name;
 		
-	};
+	}
 
 if (!empty ($toshort)) {	
 
@@ -61,7 +61,7 @@ if (!empty ($toshort)) {
 
 	echo'<a href="?s='.$token.'">?s='.$token.'</a></h1>';
 
-    };
+    }
 
 if (!empty ($_GET["s"])) {	
 
@@ -92,10 +92,10 @@ if (!empty ($_GET["s"])) {
 	          
 	        <a href="'.$linked.'" id="lnk">'.$linked.'</a>';
 	
-		 echo'
-			<script>
+        echo'
+		<script>
 		        window.onload = function() {
-				         setTimeout(function() {
+				        setTimeout(function() {
 					          document.getElementById("lnk").click();
 			                    }, 1400)};
 			   </script>';
@@ -105,13 +105,13 @@ if (!empty ($_GET["s"])) {
 if (!empty ($_REQUEST["to_short"])) {
 
 	 echo'
-		<script>
-	        window.onload = function() {
-			         setTimeout(function() {
+	    <script>
+	           window.onload = function() {
+			           setTimeout(function() {
 				          document.getElementById("shr").click();
 		                    }, 2000)};
 		   </script>';
-	};
+        }
 ?>
 
 <script>
