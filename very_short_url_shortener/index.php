@@ -71,13 +71,13 @@ if (!empty ($_GET["s"])) {
 	
 	$linked = file_get_contents($sid);
 	
-	if (get_headers($linked) === false) {
+    if (get_headers($linked) === false) {
 		
        header("Location: $sid");
     
         die();
 
-    } 
+     } 
 
     if (empty ($linked)) {
 
@@ -124,7 +124,7 @@ if (!empty ($_REQUEST["to_short"])) {
 			font:caption;
 			background-color:#f5b041;
 			padding:12%;
-			max-width:100%;
+			max-width:100%
 		        }
 		input{
 			font-size:1.1em;
