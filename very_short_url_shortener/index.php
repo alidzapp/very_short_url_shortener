@@ -128,23 +128,22 @@ if (!empty ($_REQUEST["to_short"])) {
 			padding:8;
 			font-size:1.04em
 			}
-	    input:hover{
+	        input:hover{
 			background-color:#f5b041;
 			padding:0 5 5 5;
 			margin:0 5 5 5
 			}
-	    input[type=submit]:hover{
+	        input[type=submit]:hover{
 			cursor:pointer
 			}
-	    #hi{
+	        #hi{
 			font-size:1.8em;margin:12
 			}
 </style>
-
 		
-<small>
-   <a title="Fourchette moi sur Github" href="https://github.com/webdev23/very_short_url_shortener">🍴 </a>
-      </small>
+ <small>
+    <a title="Fourchette moi sur Github" href="https://github.com/webdev23/very_short_url_shortener">🍴 </a>
+       </small>
       
       
 	
