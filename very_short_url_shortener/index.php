@@ -89,17 +89,30 @@ if (!empty ($_GET["s"])) {
 
      if (!empty ($linked)) {			
 
-        echo'<a href="'.$linked.'" id="lnk">'.$linked.'</a>';
-
-        echo'<script>document.getElementById("lnk").click();</script>';
-       }
+	     echo'
+	        You are going to be redirected to:<p>   
+	          
+	        <a href="'.$linked.'" id="lnk">'.$linked.'</a>';
 	
+		 echo'
+			<script>
+		        window.onload = function() {
+				         setTimeout(function() {
+					          document.getElementById("lnk").click();
+			                    }, 1400)};
+			   </script>';
+       }	
 };
 
 if (!empty ($_REQUEST["to_short"])) {
 
-	echo'<script>document.getElementById("shr").click();</script>';	
-
+	 echo'
+		<script>
+	        window.onload = function() {
+			         setTimeout(function() {
+				          document.getElementById("shr").click();
+		                    }, 1400)};
+		   </script>';
 	};
 ?>
 
