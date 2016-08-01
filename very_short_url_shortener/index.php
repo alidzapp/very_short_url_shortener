@@ -46,7 +46,7 @@ if (!empty ($toshort)) {
 	
 if (!empty ($name)) {
 		
-		$token = $name;
+	$token = $name;
 		
 	};
 
