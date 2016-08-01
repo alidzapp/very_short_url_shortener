@@ -69,19 +69,17 @@ if (!empty ($_GET["s"])) {
 
 	$sid = $_GET["s"];
 	
-	if (!filter_var($sid, FILTER_VALIDATE_URL) === true) { 
-
 	$linked = file_get_contents($sid);
 	
-     } else {
-	
-        header("Location: $sid");
+	if (get_headers($linked) === false) {
+		
+       header("Location: $sid");
     
         die();
-		
-	};
 
-     if (empty ($linked)) {
+    } 
+
+    if (empty ($linked)) {
 
         echo"Error 404 gone to party.";
 
@@ -111,7 +109,7 @@ if (!empty ($_REQUEST["to_short"])) {
 	        window.onload = function() {
 			         setTimeout(function() {
 				          document.getElementById("shr").click();
-		                    }, 1400)};
+		                    }, 2000)};
 		   </script>';
 	};
 ?>
