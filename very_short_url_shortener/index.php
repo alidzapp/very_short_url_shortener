@@ -29,7 +29,7 @@ if (empty ($toshort)) {
 
         <form method="post">
 
-	<input type="input" name="bigurl" autofocus placeholder="//url" value="'.$_REQUEST["to_short"].'" /><br>
+	<input type="input" name="bigurl" autofocus placeholder="//url, or whatever" value="'.$_REQUEST["to_short"].'" /><br>
 	
 	<input type="input" name="name" placeholder="Optional: give a name" value="'.$_REQUEST["name"].'" /><br>
 
@@ -49,7 +49,7 @@ if (!empty ($name)) {
 		
 	$token = $name;
 		
-	}
+    }
 
 if (!empty ($toshort)) {	
 
@@ -83,7 +83,7 @@ if (!empty ($_GET["s"])) {
 
         echo"Error 404 gone to party.";
 
-       };
+     }
 
      if (!empty ($linked)) {			
 
@@ -92,25 +92,25 @@ if (!empty ($_GET["s"])) {
 	          
 	        <a href="'.$linked.'" id="lnk">'.$linked.'</a>';
 	
-        echo'
-		<script>
-		        window.onload = function() {
-				        setTimeout(function() {
-					          document.getElementById("lnk").click();
-			                    }, 1400)};
+     echo'
+	<script>
+		window.onload = function() {
+			setTimeout(function() {
+			document.getElementById("lnk").click();
+	                         }, 1400)};
 			   </script>';
        }	
 };
 
 if (!empty ($_REQUEST["to_short"])) {
 
-	 echo'
-	    <script>
-	           window.onload = function() {
-			           setTimeout(function() {
-				          document.getElementById("shr").click();
-		                    }, 2000)};
-		   </script>';
+     echo'
+	 <script>
+	        window.onload = function() {
+			setTimeout(function() {
+                        document.getElementById("shr").click();
+		                 }, 2000)};
+		    </script>';
         }
 ?>
 
