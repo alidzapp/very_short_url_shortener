@@ -52,8 +52,6 @@ if (!empty ($name)) {
 
 if (!empty ($toshort)) {	
 
-// Change the 2 to match your choice
-
 	file_put_contents($token, $toshort . PHP_EOL, FILE_APPEND);
 
 	echo $toshort;
