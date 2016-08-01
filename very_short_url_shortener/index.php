@@ -40,26 +40,25 @@ if (empty ($toshort)) {
 
 if (!empty ($toshort)) {
 	
-	// Change the 2 to match your choice
-	
 	$token = bin2hex(openssl_random_pseudo_bytes(2));
 	
     };
 	
 if (!empty ($name)) {
 		
-	$token = $name;
+		$token = $name;
 		
 	};
 
 if (!empty ($toshort)) {	
 
+// Change the 2 to match your choice
 
 	file_put_contents($token, $toshort . PHP_EOL, FILE_APPEND);
 
 	echo $toshort;
 
-	echo'<h1><br>has been shorten into:<br>';
+	echo'<h1><br>is now linked to:<br>';
 
 	echo'<a href="?s='.$token.'">?s='.$token.'</a></h1>';
 
@@ -70,8 +69,18 @@ if (!empty ($_GET["s"])) {
 	echo"<br>";
 
 	$sid = $_GET["s"];
+	
+	if(filter_var($sid, FILTER_VALIDATE_URL)) { 
 
 	$linked = file_get_contents($sid);
+	
+    }else {
+	
+	header("Location: $sid");
+    
+    die();
+		
+		};
 
 	if (empty ($linked)) {
 
@@ -94,21 +103,43 @@ if (!empty ($_REQUEST["to_short"])) {
 	};
 ?>
 
-	<script>
+<script>
 	function alrt() {alert(document.getElementById("bktxt").innerHTML)};
-	</script>
+ </script>
 	
-	<style>
-	body{text-align:center;font:caption;background-color:#f5b041;padding:12%;max-width:100%transform:scale(2)}
-	input{font-size:1.1em;margin:3px}
-	input,a{transition:.44s ease-out}
-	a:hover{padding:8;font-size:1.04em}
-        input:hover{background-color:#f5b041;padding:0 5 5 5;margin:0 5 5 5}
-        input[type=submit]:hover{cursor:pointer}
-        #hi{font-size:1.8em;margin:12}
+<style>
+	body{
+		text-align:center;
+		font:caption;
+		background-color:#f5b041;
+		padding:12%;
+		max-width:100%;
+		transform:scale(2)}
+	input{
+		font-size:1.1em;
+		margin:3px
+		}
+	input,a{
+		transition:.44s ease-out
+		}
+	a:hover{
+		padding:8;
+		font-size:1.04em
+		}
+    input:hover{
+		background-color:#f5b041;
+		padding:0 5 5 5;
+		margin:0 5 5 5
+		}
+    input[type=submit]:hover{
+		cursor:pointer
+		}
+    #hi{
+		font-size:1.8em;margin:12
+		}
 	</style>
 	
-        <small>
-          <a title="Fourchette moi sur Github" href="https://github.com/webdev23/very_short_url_shortener">🍴 </a
-            ></small>
+<small>
+	<a title="Fourchette moi sur Github" href="https://github.com/webdev23/very_short_url_shortener">🍴 </a>
+	  </small>
 	
