@@ -10,7 +10,7 @@ In option, you can name your link, it can include space or special chars.<br>
 **You can use it with the bookmarklet that will be auto-generated.**<br>
 Or just by happening your link to the url like this:<br>
 ### ?to_short=http://A_very_LOONG_link<br>
-LIke YOURLS do. But in 1.5ko.
+LIke YOURLS do. But in 2.5Ko
 
 Have a try: http://ponyhacks.com/open/i/ <br>
 As example: (You are going back here): <br>
