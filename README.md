@@ -4,7 +4,7 @@ Yeah it is. But it weight 3.7mb and is made of 482 files, which should be a pain
 So I maked this as a start.<br>
 It can shorten links.<br>
 It can redirect if links exist.<br>
-A message is shown if no link are found.<br>
+A message is shown if no links are found.<br>
 It create files in the same folder, so the folder is the database.<br>
 Just by happening your link to the url like this:<br>
 ### ?to_short=http://A_very_LOONG_link<br>
