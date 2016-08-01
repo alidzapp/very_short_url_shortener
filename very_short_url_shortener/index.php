@@ -114,7 +114,6 @@ if (!empty ($_REQUEST["to_short"])) {
 			background-color:#f5b041;
 			padding:12%;
 			max-width:100%;
-			transform:scale(2)
 		        }
 		input{
 			font-size:1.1em;
