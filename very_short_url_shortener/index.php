@@ -40,6 +40,8 @@ if (empty ($toshort)) {
 
 if (!empty ($toshort)) {
 	
+	// Change the 2 to match your choice
+	
 	$token = bin2hex(openssl_random_pseudo_bytes(2));
 	
     };
@@ -52,7 +54,6 @@ if (!empty ($name)) {
 
 if (!empty ($toshort)) {	
 
-// Change the 2 to match your choice
 
 	file_put_contents($token, $toshort . PHP_EOL, FILE_APPEND);
 
