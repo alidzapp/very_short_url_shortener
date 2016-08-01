@@ -46,7 +46,7 @@ if (!empty ($toshort)) {
 	
 if (!empty ($name)) {
 		
-		$token = $name;
+	$token = $name;
 		
 	};
 
@@ -74,27 +74,28 @@ if (!empty ($_GET["s"])) {
 
 	$linked = file_get_contents($sid);
 	
-    } else {
+     } else {
 	
-	header("Location: $sid");
+        header("Location: $sid");
     
-    die();
+        die();
 		
 	};
 
-	if (empty ($linked)) {
+     if (empty ($linked)) {
 
-    echo"Error 404 gone to party.";
+        echo"Error 404 gone to party.";
 
-	};
+       };
 
-	if (!empty ($linked)) {			
+     if (!empty ($linked)) {			
 
-    echo'<a href="'.$linked.'" id="lnk">'.$linked.'</a>';
+        echo'<a href="'.$linked.'" id="lnk">'.$linked.'</a>';
 
-    echo'<script>document.getElementById("lnk").click();</script>';
-
-}};
+        echo'<script>document.getElementById("lnk").click();</script>';
+       }
+	
+};
 
 if (!empty ($_REQUEST["to_short"])) {
 
