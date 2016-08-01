@@ -70,17 +70,17 @@ if (!empty ($_GET["s"])) {
 
 	$sid = $_GET["s"];
 	
-	if(filter_var($sid, FILTER_VALIDATE_URL)) { 
+	if (!filter_var($sid, FILTER_VALIDATE_URL) === true) { 
 
 	$linked = file_get_contents($sid);
 	
-    }else {
+    } else {
 	
 	header("Location: $sid");
     
     die();
 		
-		};
+	};
 
 	if (empty ($linked)) {
 
@@ -94,52 +94,53 @@ if (!empty ($_GET["s"])) {
 
     echo'<script>document.getElementById("lnk").click();</script>';
 
-    }};
+}};
 
 if (!empty ($_REQUEST["to_short"])) {
 
 	echo'<script>document.getElementById("shr").click();</script>';	
 
 	};
+	
 ?>
 
 <script>
-	function alrt() {alert(document.getElementById("bktxt").innerHTML)};
- </script>
-	
-<style>
-	body{
-		text-align:center;
-		font:caption;
-		background-color:#f5b041;
-		padding:12%;
-		max-width:100%;
-		transform:scale(2)}
-	input{
-		font-size:1.1em;
-		margin:3px
-		}
-	input,a{
-		transition:.44s ease-out
-		}
-	a:hover{
-		padding:8;
-		font-size:1.04em
-		}
-    input:hover{
-		background-color:#f5b041;
-		padding:0 5 5 5;
-		margin:0 5 5 5
-		}
-    input[type=submit]:hover{
-		cursor:pointer
-		}
-    #hi{
-		font-size:1.8em;margin:12
-		}
-	</style>
-	
+		function alrt() {alert(document.getElementById("bktxt").innerHTML)};
+    </script>
+		
+ <style>
+		body{
+			text-align:center;
+			font:caption;
+			background-color:#f5b041;
+			padding:12%;
+			max-width:100%;
+			transform:scale(2)}
+		input{
+			font-size:1.1em;
+			margin:3px
+			}
+		input,a{
+			transition:.44s ease-out
+			}
+		a:hover{
+			padding:8;
+			font-size:1.04em
+			}
+	    input:hover{
+			background-color:#f5b041;
+			padding:0 5 5 5;
+			margin:0 5 5 5
+			}
+	    input[type=submit]:hover{
+			cursor:pointer
+			}
+	    #hi{
+			font-size:1.8em;margin:12
+			}
+</style>
+		
 <small>
 	<a title="Fourchette moi sur Github" href="https://github.com/webdev23/very_short_url_shortener">🍴 </a>
-	  </small>
+	        </small>
 	
