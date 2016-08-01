@@ -6,8 +6,8 @@ It can shorten links.<br>
 It can redirect if links exist.<br>
 A message is shown if no link are found.<br>
 It create files in the same folder, so the folder is the database.<br>
-In option, you can name your link, it can include space or special chars.
-You can use it with the bookmarklet provided.<br>
+In option, you can name your link, it can include space or special chars.<br>
+####You can use it with the bookmarklet provided.<br>
 Or just by happening your link to the url like this:<br>
 ### ?to_short=http://A_very_LOONG_link<br>
 LIke YOURLS do. But in 1.5ko.
