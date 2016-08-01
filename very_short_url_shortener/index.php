@@ -106,7 +106,7 @@ if (!empty ($_REQUEST["to_short"])) {
 ?>
 
 <script>
-		function alrt() {alert(document.getElementById("bktxt").innerHTML)};
+	function alrt() {alert(document.getElementById("bktxt").innerHTML)};
     </script>
 		
  <style>
@@ -140,8 +140,11 @@ if (!empty ($_REQUEST["to_short"])) {
 			font-size:1.8em;margin:12
 			}
 </style>
+
 		
 <small>
-	<a title="Fourchette moi sur Github" href="https://github.com/webdev23/very_short_url_shortener">🍴 </a>
-	        </small>
+   <a title="Fourchette moi sur Github" href="https://github.com/webdev23/very_short_url_shortener">🍴 </a>
+      </small>
+      
+      
 	
