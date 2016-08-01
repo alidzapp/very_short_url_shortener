@@ -24,9 +24,10 @@ if (empty ($toshort)) {
 	
 	<p>';
 
-    echo'<textarea style="display:none" id="bktxt">'.$bookmarklet.'</textarea>';
+    echo'
+        <textarea style="display:none" id="bktxt">'.$bookmarklet.'</textarea>
 
-	echo'<form method="post">
+        <form method="post">
 
 	<input type="input" name="bigurl" autofocus placeholder="//url" value="'.$_REQUEST["to_short"].'" /><br>
 	
@@ -100,7 +101,6 @@ if (!empty ($_REQUEST["to_short"])) {
 	echo'<script>document.getElementById("shr").click();</script>';	
 
 	};
-	
 ?>
 
 <script>
