@@ -8,7 +8,7 @@ A message is shown if no links are found.<br>
 It create files in the same folder, so the folder is the database.<br>
 Just by happening your link to the url like this:<br>
 ### ?to_short=http://A_very_LOONG_link<br>
-LIke YOURLS do. But in 2.5Ko
+LIke YOURLS do. But in one file of 2.5Ko.
 
 In option, you can name your link, it can include space or special chars.<br>
 Any non-url content will be converted in a file download.<br>
