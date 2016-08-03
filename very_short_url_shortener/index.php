@@ -34,14 +34,14 @@ if (empty ($toshort)) {
 	
 	<p>';
 
-    echo'
-		<textarea style="display:none" id="bktxt">'.$bookmarklet.'</textarea>
-	        <form method="post">
-				<input type="input" name="bigurl" autofocus placeholder="//url, or whatever" value="'.$_REQUEST["to_short"].'" id="main" />
-					<p>		
-						<input type="input" name="name" placeholder="Optional: give a name" value="'.$_REQUEST["name"].'" />
-							<p>	
-							  <input type="submit" value="@" id="shr" />											
+         echo'
+	<textarea style="display:none" id="bktxt">'.$bookmarklet.'</textarea>
+	     <form method="post">
+		<input type="input" name="bigurl" autofocus placeholder="//url, or whatever" value="'.$_REQUEST["to_short"].'" id="main" />
+			<p>		
+		        	<input type="input" name="name" placeholder="Optional: give a name" value="'.$_REQUEST["name"].'" />
+			        	<p>	
+					        <input type="submit" value="@" id="shr" />											
 	</form>';
  }
 
