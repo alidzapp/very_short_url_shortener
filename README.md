@@ -16,7 +16,7 @@ Any non-url content will be converted in a file download.<br>
 
 Have a try: http://ponyhacks.com/@/ <br>
 As example: (You are going back here): <br>
-http://ponyhacks.com/open/i/?to_short=https://github.com/webdev23/very_short_url_shortener
+http://ponyhacks.com/@/?to_short=https://github.com/webdev23/very_short_url_shortener
 
 ####Installation: 
 #### *Give write access to the index.php file and his containing folder.*
