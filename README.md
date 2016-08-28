@@ -14,7 +14,7 @@ In option, you can name your link, it can include space or special chars.<br>
 Any non-url content will be converted in a file download.<br>
 **A bookmarklet for direct access will be auto-generated** <br>
 
-Have a try: http://ponyhacks.com/open/i/ <br>
+Have a try: http://ponyhacks.com/@/ <br>
 As example: (You are going back here): <br>
 http://ponyhacks.com/open/i/?to_short=https://github.com/webdev23/very_short_url_shortener
 
