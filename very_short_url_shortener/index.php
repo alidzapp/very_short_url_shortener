@@ -15,13 +15,13 @@ $host = "http://$_SERVER[HTTP_HOST]$_SERVER[SCRIPT_NAME]";
 
 $bookmarklet = 'javascript:void(window.location=&#39;'.$host.'?to_short=&#39+encodeURIComponent(window.location.href));';
 
-echo '<html><h1>';
+echo '<html><meta name="referrer" content="no-referrer"><h1>';
 
 if (empty ($toshort)) {
 
 	echo'
 	<big class="hi">
-       <a href="#" title="@!" onclick="rstr()">Hello!</a>
+       <a href="#" title="@!" onclick="rstr()">Hello @!</a>
 		 <a title="Fourchette moi sur Github" href="https://github.com/webdev23/very_short_url_shortener">🍴 </a>
 	         </big>
 	            <br>I am very short url shortener<br>
@@ -34,20 +34,28 @@ if (empty ($toshort)) {
 	
 	<p>';
 
-         echo'
+    echo'
 	<textarea style="display:none" id="bktxt">'.$bookmarklet.'</textarea>
-	     <form method="post">
-		<input type="input" name="bigurl" autofocus placeholder="//url, or whatever" value="'.$_REQUEST["to_short"].'" id="main" />
-			<p>		
-		        	<input type="input" name="name" placeholder="Optional: give a name" value="'.$_REQUEST["name"].'" />
-			        	<p>	
-					        <input type="submit" value="@" id="shr" />											
+        <form method="post">
+			<input type="input" name="bigurl" autofocus placeholder="//url, or whatever"
+			        value="'.$_REQUEST["to_short"].'" id="main" />
+				  <p>		
+					<input type="input" id="inam" name="name" placeholder="Optional: give a name"
+					        value="'.$_REQUEST["name"].'" />
+						<p>	
+						  <input type="submit" value="@" id="shr" 
+						     onmouseover="let rdm = (&#39;00000&#39;+(Math.random()*(1<<24)|0).toString(16)).slice(-6);
+						                      crdm = &#39;#&#39; + rdm;
+						                    this.style.backgroundColor = rdm;
+						                      this.style.color = 0xffffff ^ this.style.backgroundColor;
+						                        document.getElementById(&#39;inam&#39;).value = rdm;
+						                          document.body.style.backgroundColor = crdm" />											
 	</form>';
  }
 
 if (!empty ($toshort)) {
 	
-	$token = bin2hex(openssl_random_pseudo_bytes(2));
+	$token = substr(md5(rand()), 0, 6);
 	
  }
 	
@@ -65,7 +73,7 @@ if (!empty ($toshort)) {
 
     echo'<h1><br>is now linked to:<br>';
 
-    echo'<a href="?s='.$token.'">?s='.$token.'</a></h1>';
+    echo'<a rel="noreferrer" crossorigin="anonymous" href="?s='.$token.'">'.$token.'</a></h1>';
 
  }
 
@@ -96,7 +104,7 @@ if (!empty ($_GET["s"])) {
      echo'
 	 You are going to be redirected to:<p>   
 	          
-	        <a href="'.$linked.'" id="lnk">'.$linked.'</a>';
+	        <a rel="noreferrer" crossorigin="anonymous" href="'.$linked.'" id="lnk">'.$linked.'</a>';
 	
      echo'
 	<script>
@@ -130,33 +138,42 @@ function rstr() {
 			          document.getElementById("main").value=check.replace("urn:", "")
 		           } else if (check.includes("urn") === true && check.includes("http") === false) {
 	                     document.getElementById("main").value="http://"+document.getElementById("main").value.replace("urn:", "")
-	                     }};                             
+	                     }};
     </script>';
-?>		
+echo '	
  <style>
 		body{
 			text-align:center;
 			font:caption;
+			color:#ffA;
 			background-color:#f5b041;
+			background-color:#'.$token.';
 			padding:12%;
 			max-width:100%;
 			transform: scale(1.2,1.2);
+			transition:.44s ease-in .12s;
+			text-shadow: 1px 1px #00f;
 		    }
+          a, a:active, a:visited{
+			text-shadow: 1px 1px #00f
+		    }		    
 		input{
 			font-size:1.1em;
 			margin:3px;
-			box-shadow: -1px -1px 3px 5px black;
+			box-shadow: -1px -1px black;
+			border-radius:5px
 			}
 		input,a{
-			transition:.4s ease-in .1s
+			transition:.44s ease-in .12s;
+			filter:invert(17%)
 			}	
 		a:hover{
 			margin:0 7px 0 7px;
-			color:teal;
+			color:teal
 			}
 		input:hover{
 		    background-color:silver;
-			transform: scale(1.3,1.3);
+			transform: scale(1.3,1.3)
 			}
 		input[type=submit]{
 			cursor:pointer;
@@ -164,23 +181,26 @@ function rstr() {
 			padding: 5px;
 			border: 5px solid black;
 			font-size:2.2em;
-			border-radius:8px
+			border-radius:50px;
+			text-shadow: 3px 3px #ff0000;
+			transition:1s ease-out .19s
 			}
 		input[type=submit]:hover{
 			background-color:teal;
 			font-size:2.6em;
 		    color:#f5b041;
 			margin:15px;
-			border-radius:80px
-			}							
+			border-radius:80px;
+			transform: rotate(36000deg)			
+			}								
 		.hi{
-			font-size:2em
+			font-size:2em;
+			text-shadow: 3px 3px #ff0000
 			}
 		#m8 {
-
 			top:60%
 		    }			
-</style>
+</style>';
 	
       
       
