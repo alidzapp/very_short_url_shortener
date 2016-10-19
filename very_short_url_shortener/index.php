@@ -1,9 +1,15 @@
 <?php
 
-//~ Very short url shortener! | Nico KraZhtest | ponyhacks.com | krazhtest|@|ya.ru
-
 ini_set('display_errors', 'Off');
+
 error_reporting(0);
+
+echo '<!DOCTYPE HTML>
+
+       <meta name="referrer" content="no-referrer">
+        
+  <!-- Very short url shortener! | Nico KraZhtest | ponyhacks.com | krazhtest|@|ya.ru -->     
+      ';
 
 $toshort = $_POST["bigurl"];
 
@@ -15,13 +21,13 @@ $host = "http://$_SERVER[HTTP_HOST]$_SERVER[SCRIPT_NAME]";
 
 $bookmarklet = 'javascript:void(window.location=&#39;'.$host.'?to_short=&#39+encodeURIComponent(window.location.href));';
 
-echo '<html><meta name="referrer" content="no-referrer"><h1>';
+echo '<h1>';
 
 if (empty ($toshort)) {
 
 	echo'
 	<big class="hi">
-       <a href="#" title="@!" onclick="rstr()">Hello @!</a>
+       <a href="/@" title="@!" onclick="rstr()">Hello @!</a>
 		 <a title="Fourchette moi sur Github" href="https://github.com/webdev23/very_short_url_shortener">🍴 </a>
 	         </big>
 	            <br>I am very short url shortener<br>
@@ -37,19 +43,19 @@ if (empty ($toshort)) {
     echo'
 	<textarea style="display:none" id="bktxt">'.$bookmarklet.'</textarea>
         <form method="post">
-			<input type="input" name="bigurl" autofocus placeholder="//url, or whatever"
-			        value="'.$_REQUEST["to_short"].'" id="main" />
-				  <p>		
-					<input type="input" id="inam" name="name" placeholder="Optional: give a name"
-					        value="'.$_REQUEST["name"].'" />
-						<p>	
-						  <input type="submit" value="@" id="shr" 
-						     onmouseover="let rdm = (&#39;00000&#39;+(Math.random()*(1<<24)|0).toString(16)).slice(-6);
-						                      crdm = &#39;#&#39; + rdm;
-						                    this.style.backgroundColor = rdm;
-						                      this.style.color = 0xffffff ^ this.style.backgroundColor;
-						                        document.getElementById(&#39;inam&#39;).value = rdm;
-						                          document.body.style.backgroundColor = crdm" />											
+		<input type="input" name="bigurl" autofocus placeholder="//url, or whatever"
+		        value="'.$_REQUEST["to_short"].'" id="main" />
+			  <p>		
+				<input type="input" id="inam" name="name" placeholder="Optional: give a name"
+				        value="'.$_REQUEST["name"].'" />
+				     <p>	
+		  <input type="submit" value="@" id="shr" 
+		     onmouseover="let rdm = (&#39;00000&#39;+(Math.random()*(1<<24)|0).toString(16)).slice(-6);
+		                      crdm = &#39;#&#39; + rdm;
+		                    this.style.backgroundColor = rdm;
+		                      this.style.color = 0xffffff ^ this.style.backgroundColor;
+		                        document.getElementById(&#39;inam&#39;).value = rdm;
+		                          document.body.style.backgroundColor = crdm" />											
 	</form>';
  }
 
@@ -65,17 +71,30 @@ if (!empty ($name)) {
 		
  }
 
-if (!empty ($toshort)) {	
+if (!empty ($toshort)) {
 
-	file_put_contents($token, $toshort . PHP_EOL, FILE_APPEND);
+	if (strlen($toshort) < 1000 && strlen($token) < 1000) {
 
-    echo $toshort;
+	    $toshort = htmlspecialchars(str_replace(' ', '', $toshort), ENT_QUOTES);
 
-    echo'<h1><br>is now linked to:<br>';
+	    $token = htmlspecialchars(str_replace(' ', '', $token), ENT_SUBSTITUTE);
 
-    echo'<a rel="noreferrer" crossorigin="anonymous" href="?s='.$token.'">'.$token.'</a></h1>';
+		file_put_contents($token, $toshort . PHP_EOL, FILE_APPEND);
 
- }
+	    echo $toshort;
+
+	    echo'<h1><br>is now linked to:<br>';
+
+	    echo'<a href="?s='.$token.'">?s='.$token.'</a></h1>';
+	 }
+
+	 else {
+
+	 	echo'<h3>Input too large! <br>Max 1000 chars allowed<br><a href="/@">@</a>';
+
+	 	die();
+	 }
+}
 
 if (!empty ($_GET["s"])) {	
 
@@ -102,11 +121,13 @@ if (!empty ($_GET["s"])) {
     if (!empty ($linked)) {			
 
      echo'
+
 	 You are going to be redirected to:<p>   
 	          
 	        <a rel="noreferrer" crossorigin="anonymous" href="'.$linked.'" id="lnk">'.$linked.'</a>';
 	
      echo'
+
 	<script>
 		window.onload = function() {
 			setTimeout(function() {
@@ -118,29 +139,34 @@ if (!empty ($_GET["s"])) {
 
 if (!empty ($_REQUEST["to_short"])) {
 
-      echo'
-	  <script>
-	         window.onload = function() {
-			 setTimeout(function() {
-			     if (document.getElementById("shr") != null) { 
-                         document.getElementById("shr").click();
-		                  }}, 2000)}
-		     </script>';
+   echo'
+	<script>
+		 window.onload = function() {
+		 setTimeout(function() {
+		     if (document.getElementById("shr") != null) { 
+					 document.getElementById("shr").click();
+	                  }}, 2000)}
+	     </script>';
  }
 
 echo '
+
 <script>
+
 function rstr() {
-	 navigator.registerProtocolHandler("urn","'.$host.'?to_short=%s","Reduce with @!")};
+	    navigator.registerProtocolHandler("urn","'.$host.'?to_short=%s","Reduce with @!")};
     if (document.getElementById("main") != null) {                       
-	    let check = document.getElementById("main").value;                          
-			if (check.includes("urn") === true && check.includes("http") === true) {
-			          document.getElementById("main").value=check.replace("urn:", "")
-		           } else if (check.includes("urn") === true && check.includes("http") === false) {
-	                     document.getElementById("main").value="http://"+document.getElementById("main").value.replace("urn:", "")
-	                     }};
-    </script>';
+    let check = document.getElementById("main").value;                          
+		if (check.includes("urn") === true && check.includes("http") === true) {
+		          document.getElementById("main").value=check.replace("urn:", "")
+	          } 
+	    else if (check.includes("urn") === true && check.includes("http") === false) {
+     document.getElementById("main").value="http://"+document.getElementById("main").value.replace("urn:", "")
+}}
+	     </script>'; 
+  
 echo '	
+
  <style>
 		body{
 			text-align:center;
@@ -148,9 +174,9 @@ echo '
 			color:#ffA;
 			background-color:#f5b041;
 			background-color:#'.$token.';
-			padding:12%;
+			padding:2%;
 			max-width:100%;
-			transform: scale(1.2,1.2);
+			transform: scale(0.7,0.7);
 			transition:.44s ease-in .12s;
 			text-shadow: 1px 1px #00f;
 		    }
@@ -199,9 +225,6 @@ echo '
 			}
 		#m8 {
 			top:60%
-		    }			
-</style>';
-	
-      
-      
-	
+		    }		
+</style>
+';
